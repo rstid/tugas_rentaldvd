@@ -75,9 +75,16 @@
             <!-- PAGE DATA FILM -->
             <li class="treeview <?php if(isset($_GET['page']) && $_GET['page']=="data_film") { echo "active"; } ?>">
               <a href="./?page=data_film">
-                <i class="fa fa-film"></i> <span>DVD Film</span> 
+                <i class="fa fa-film"></i> <span>List DVD Film</span> 
               </a>
             </li>
+            <?php if(!isset($_SESSION['username'])): ?>
+              <li class="treeview">
+                <a href="login.php">
+                  <i class="fa fa-lock"></i> <span>Login</span> 
+                </a>
+              </li>
+             <?php else: ?>
             <!-- PAGE DATA Rental -->
             <li class="treeview <?php if(isset($_GET['page']) && $_GET['page']=="data_rental" | $_GET['action']=="data_rental") { echo "active"; } ?>">
               <a href="./?page=data_rental">
@@ -96,13 +103,6 @@
                 <i class="fa fa-pencil"></i> <span>Data Kategori Film</span> 
               </a>
             </li>
-          <?php if(!isset($_SESSION['username'])): ?>
-             <li class="treeview">
-              <a href="login.php">
-                <i class="fa fa-lock"></i> <span>Login</span> 
-              </a>
-            </li>
-          <?php else: ?>
             <li class="header">MENU ADMIN</li>
             <li class="<?php if(isset($_GET['page']) && $_GET['page']=="admin") { echo "active"; } ?>">
             <a href="./?page=admin"><i class="fa fa-user text-warning"></i> Managemen User</a></li>

@@ -21,9 +21,18 @@ $query = $conn->query("SELECT * FROM $table");
 			<tr>
             <th>NO</th>
             <?php
-                if (isset($columnName)) {
-                    foreach($columnName as $colName) {
-                        echo '<th>'.$colName.'</th>';
+                if($_GET['page'] == 'data_film') {
+                    echo '<th>Gambar</th>';
+                    echo '<th>Title</th>';
+                    echo '<th>Deskripsi</th>';
+                    echo '<th>Tahun Release</th>';
+                    echo '<th>Rating</th>';
+                    echo '<th>Kategori</th>';
+                } else {
+                    if (isset($columnName)) {
+                        foreach($columnName as $colName) {
+                            echo '<th>'.$colName.'</th>';
+                        }
                     }
                 }
             ?>
@@ -40,12 +49,17 @@ $query = $conn->query("SELECT * FROM $table");
             <tr>
                 <td><?php echo $no++; ?></td> 
                 <?php
-                    if (isset($columnName)) {
-                        foreach($column as $col) {
-                            if(preg_match('/http/i', $q[$col])) {
-                                echo '<td><img src="'.$q[$col].'" alt="gambar" width="100" height="150"</td>';
-                            } else {
-                                echo '<td>'.$q[$col].'</td>';
+                    if($_GET['page'] == 'data_film') {
+                        echo '<td><img src="'.$q['gambar_url'].'" alt="gambar" width="100" height="150"</td>';
+                        echo '<td>'.$q['title'].'</td>';
+                        echo '<td>'.$q['deskripsi'].'</td>';
+                        echo '<td>'.$q['tahun_release'].'</td>';
+                        echo '<td>'.$q['rating'].'</td>';
+                        echo '<td>'.$q['kategori_film_id'].'</td>';
+                    } else {
+                        if (isset($columnName)) {
+                            foreach($column as $col) {
+                                    echo '<td>'.$q[$col].'</td>';
                             }
                         }
                     }
