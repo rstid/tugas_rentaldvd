@@ -72,6 +72,12 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
               </a>
             </li>
+            <!-- PAGE DATA FILM -->
+            <li class="treeview <?php if(isset($_GET['page']) && $_GET['page']=="data_film") { echo "active"; } ?>">
+              <a href="./?page=data_film">
+                <i class="fa fa-film"></i> <span>DVD Film</span> 
+              </a>
+            </li>
             <!-- PAGE DATA Rental -->
             <li class="treeview <?php if(isset($_GET['page']) && $_GET['page']=="data_rental" | $_GET['action']=="data_rental") { echo "active"; } ?>">
               <a href="./?page=data_rental">
@@ -84,19 +90,13 @@
                 <i class="fa fa-user"></i> <span>Data Customer</span> 
               </a>
             </li>
-            <!-- PAGE DATA FILM -->
-            <li class="treeview <?php if(isset($_GET['page']) && $_GET['page']=="data_film") { echo "active"; } ?>">
-              <a href="./?page=data_film">
-                <i class="fa fa-film"></i> <span>Data Film</span> 
-              </a>
-            </li>
             <!-- PAGE DATA KATEGORI FILM -->
             <li class="treeview <?php if(isset($_GET['page']) && $_GET['page']=="data_kategori_film") { echo "active"; } ?>">
               <a href="./?page=data_kategori_film">
                 <i class="fa fa-pencil"></i> <span>Data Kategori Film</span> 
               </a>
             </li>
-            <?php if(!isset($_SESSION['username'])): ?>
+          <?php if(!isset($_SESSION['username'])): ?>
              <li class="treeview">
               <a href="login.php">
                 <i class="fa fa-lock"></i> <span>Login</span> 
