@@ -14,6 +14,9 @@ if (isset($_GET['page'])) {
 		case 'spk':
 			$title = "Data SPK";
 			break;
+		case 'admin':
+			$title = "Data Users";
+			break;
 		
 		default:
 			$title = "Halaman Tidak Ditemukan";

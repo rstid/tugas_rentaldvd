@@ -75,7 +75,7 @@
             <!-- PAGE DATA Rental -->
             <li class="treeview <?php if(isset($_GET['page']) && $_GET['page']=="data_rental" | $_GET['action']=="data_rental") { echo "active"; } ?>">
               <a href="./?page=data_rental">
-                <i class="fa fa-ticket"></i> <span>Data Rental</span> 
+                <i class="fa fa-ticket"></i> <span>Data Rental DVD</span> 
               </a>
             </li>
             <!-- PAGE DATA CUSTOMER -->
