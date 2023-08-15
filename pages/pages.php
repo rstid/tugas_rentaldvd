@@ -28,6 +28,12 @@ $query = $conn->query("SELECT * FROM $table");
                     echo '<th>Tahun Release</th>';
                     echo '<th>Rating</th>';
                     echo '<th>Kategori</th>';
+                } elseif ($_GET['page'] == 'data_rental') {
+                    echo '<th>Film</th>';
+                    echo '<th>Customers</th>';
+                    echo '<th>Tanggal Pinjam</th>';
+                    echo '<th>Tanggal Pengembalian</th>';
+                    echo '<th>Status</th>';
                 } else {
                     if (isset($columnName)) {
                         foreach($columnName as $colName) {
@@ -55,7 +61,39 @@ $query = $conn->query("SELECT * FROM $table");
                         echo '<td>'.$q['deskripsi'].'</td>';
                         echo '<td>'.$q['tahun_release'].'</td>';
                         echo '<td>'.$q['rating'].'</td>';
-                        echo '<td>'.$q['kategori_film_id'].'</td>';
+                        if(isset($q['kategori_film_id'])) {
+                            $kategoriQuery = $conn->query("SELECT * FROM kategori_film WHERE id = " . $q['kategori_film_id']);
+                            $kategoriData = $kategoriQuery->fetch_assoc();
+                            echo '<td><span class="badge">'.$kategoriData['nama'].'</span></td>';
+                        } else {
+                            echo '<td>Non-Kategori</td>';
+                        }
+                        
+                    } elseif($_GET['page'] == 'data_rental') {
+                        // Film
+                        if(isset($q['film_id'])) {
+                            $getFilm = $conn->query("SELECT * FROM film WHERE id = " . $q['film_id']);
+                            $dataFilm = $getFilm->fetch_assoc();
+                            echo '<td><img src="'.$dataFilm['gambar_url'].'" alt="gambar" width="100" height="150"</td>';
+                        } else {
+                            echo '<td>Tidak ada Film</td>';
+                        }
+                        if(isset($q['customers_id'])) {
+                            $getFilm = $conn->query("SELECT * FROM customers WHERE id = " . $q['customers_id']);
+                            $dataFilm = $getFilm->fetch_assoc();
+                            echo '<td>' . $dataFilm['nama_depan'] . ' ' . $dataFilm['nama_belakang'] .'</td>';
+                        } else {
+                            echo '<td>Tidak ada Customer</td>';
+                        }
+                        echo '<td>'.$q['start_date'].'</td>';
+                        echo '<td>'.$q['end_date'].'</td>';
+
+                        // Status
+                        if($q['status'] == 1) {
+                            echo '<td><span class="badge">Sudah dikembalikan</span></td>';
+                        } else {
+                            echo '<td><span class="badge">Belum dikembalikan</span></td>';
+                        }
                     } else {
                         if (isset($columnName)) {
                             foreach($column as $col) {

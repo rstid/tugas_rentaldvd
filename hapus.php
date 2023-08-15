@@ -14,8 +14,8 @@ if (isset($_GET['hapus'])) {
 			$conn->query("DELETE FROM film WHERE id=".$_GET['id']);
 			header('Location:index.php?page='.$_GET['hapus']);
 			break;
-		case 'data_teknisi':
-			$conn->query("DELETE FROM teknisi1 WHERE id=".$_GET['id']);
+		case 'data_rental':
+			$conn->query("DELETE FROM rental WHERE id=".$_GET['id']);
 			header('Location:index.php?page='.$_GET['hapus']);
 			break;
 		case 'spk':

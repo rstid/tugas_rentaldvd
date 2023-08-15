@@ -10,8 +10,8 @@ if (isset($_GET['page']) | isset($_GET['action'])) {
             $title = 'Data Rental DVD';
             $name = 'Rental';
             $table = 'rental';
-            $columnName = array('Film', 'Customer', 'Tanggal Pinjam', 'Tanggal Pengembalian', 'Status');
-            $column = array('film_id', 'customer_id', 'start_date', 'end_date','return_status');
+            $columnName = array('Film', 'Customers', 'Tanggal Pinjam', 'Tanggal Pengembalian', 'Status');
+            $column = array('film_id', 'customers_id', 'start_date', 'end_date','return_status');
             break;
         case 'data_film':
             $title = 'Data Film';

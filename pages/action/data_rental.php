@@ -28,7 +28,7 @@ if ($_GET['action_name'] == 'edit' && isset($_GET['id'])) {
 	            <input type="hidden" name="cmd" value="<?php echo $actionEdit?'edit':'tambah' ?>">
 				<!-- Option Kategori -->
 				<div class="form-group">
-					<label for="customers">Nama Customer: </label>
+					<label for="customers">Nama Customer: </label><br>
 					<select name="customers" id="customers">
 						<?php
 							if ($actionEdit) {
@@ -52,7 +52,7 @@ if ($_GET['action_name'] == 'edit' && isset($_GET['id'])) {
 				</div>
 				<!-- Option Kategori -->
 				<div class="form-group">
-					<label for="film">Film: </label>
+					<label for="film">Film: </label><br>
 					<select name="film" id="film">
 						<?php
 							if ($actionEdit) {
@@ -76,23 +76,21 @@ if ($_GET['action_name'] == 'edit' && isset($_GET['id'])) {
 				</div>
 	            <!-- textarea -->
 	            <div class="form-group">
-	              <label>Deskripsi</label>
-	              <textarea class="form-control" rows="3" name="deskripsi" placeholder="Deskripsi"><?php echo $actionEdit?$data['deskripsi']:'' ?></textarea>
+	              <label>Tanggal Meminjam:</label><br>
+				  <input type="date" id="start_date" name="start_date" value="<?php echo $actionEdit?$data['start_date']:'' ?>">
 	            </div>
 				<!-- text -->
 	            <div class="form-group">
-	              <label>Tahun Release</label>
-	              <input type="text" class="form-control" name="tahun_release" placeholder="Tahun Release" value="<?php echo $actionEdit?$data['tahun_release']:'' ?>"/>
+	              <label>Tanggal Pengembalian:</label><br>
+	              <input type="date" id="end_date" name="end_date" value="<?php echo $actionEdit?$data['end_date']:'' ?>">
 	            </div>
 				<!-- text -->
 	            <div class="form-group">
-	              <label>Rating</label>
-	              <input type="text" class="form-control" name="rating" placeholder="Rating" value="<?php echo $actionEdit?$data['rating']:'' ?>"/>
-	            </div>
-				<!-- text -->
-	            <div class="form-group">
-	              <label>Link Gambar</label>
-	              <input type="text" class="form-control" name="gambar_url" placeholder="Link Gambar" value="<?php echo $actionEdit?$data['gambar_url']:'' ?>"/>
+	              	<label>Status:</label><br>
+	              	<select id="status" name="status">
+						<option value="0">Belum Kembali</option>
+						<option value="1">Sudah Kembali</option>
+					</select>
 	            </div>
 	            <button type="submit" class="btn btn-success"> <i class="fa fa-save"></i> Simpan</button>
 	            <button type="reset" class="btn btn-warning"> <i class="fa fa-trash"></i> Reset</button>

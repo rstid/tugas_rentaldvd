@@ -67,12 +67,12 @@ switch ($type) {
 	
 	case 'data_rental':
 		if ($cmd=="tambah") {
-			$stmt = $conn->prepare("INSERT INTO film (film_id, customer_id, start_date, end_date) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssss", $_POST['film_id'], $_POST['customer_id'], $_POST['start_date'], $_POST['end_date']);
+			$stmt = $conn->prepare("INSERT INTO rental (film_id, customers_id, start_date, end_date) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $_POST['film'], $_POST['customers'], $_POST['start_date'], $_POST['end_date']);
 			$stmt->execute();
             $stmt->close();
 		} elseif ($cmd=="edit") {
-			$stmt = $conn->prepare("UPDATE film SET film_id=?, customer_id=?, start_date=?, end_date=? WHERE id=?");
+			$stmt = $conn->prepare("UPDATE rental SET film_id=?, customer_id=?, start_date=?, end_date=? WHERE id=?");
             $stmt->bind_param("ssssi", $_POST['film_id'], $_POST['customer_id'], $_POST['start_date'], $_POST['end_date'], $_POST['id']);
             $stmt->execute();
             $stmt->close();

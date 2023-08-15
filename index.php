@@ -67,11 +67,6 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MENU UTAMA</li>
-            <li class="treeview <?php if(!isset($_GET['page'])) { echo "active"; } ?>">
-              <a href="index.php">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
-              </a>
-            </li>
             <!-- PAGE DATA FILM -->
             <li class="treeview <?php if(isset($_GET['page']) && $_GET['page']=="data_film") { echo "active"; } ?>">
               <a href="./?page=data_film">
@@ -155,7 +150,8 @@
                 } elseif (isset($_GET['action'])) {
                   require_once('mod_action.php');
                 } else {
-                  require_once('views.php');
+                  header("Location: index.php?page=data_film", true, 301);
+                  # require_once('views.php');
                 }
               ?>
             </section><!-- /.Left col -->
