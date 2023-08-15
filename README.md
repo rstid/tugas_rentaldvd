@@ -1,8 +1,13 @@
-# tugas_rentaldvd
+## tugas_rentaldvd
 
 #### Nama : Muhamad Agung Ruswandi
 #### Kelas: Y6B
 #### Tugas: Pemrograman Web Lanjut
 
-# Diagram Database
+## Diagram Database
 ![Alt text](./info/Diagram.png?raw=true "Diagram")
+
+
+## Login
+#### user: admin
+#### pass: admin
